@@ -1,0 +1,143 @@
+<section class="weekdays">
+    <header>
+      <div class="title-con">
+        <h3>Resource schedule</h3>
+        <p>
+          Week settings is here. Press the button, and add/remove working hours.
+        </p>
+        <small style="color: var(--bs-dark-blue)"
+          >You can also copy the time slots you chose.</small
+        >
+      </div>
+      <div class="dynamic-cont">
+        <button class="dynamic-button" (click)="enableAdvanced($event)">
+          <span [ngClass]="{ dynamicButtonActive: advancedCondition }"
+            >Enable Day Time</span
+          >
+          <span [ngClass]="{ dynamicButtonNormal: !advancedCondition }"
+            >Disable Day Time</span
+          >
+        </button>
+      </div>
+    </header>
+    <div *ngIf="advancedCondition" class="start-end-outer">
+      <div
+        class="start-end-container"
+        *ngFor="let item of days; index as indexOfDay"
+      >
+        <section
+          [ngClass]="{ alignUp: item.addCondi }"
+          class="start-end-container"
+        >
+          <div (click)="toggleCondition(indexOfDay)" class="outer-custom-li">
+            <div [ngClass]="{ liActive: item.condition }" class="custom-li-copy">
+              <button
+                type="button"
+                [ngClass]="{ active: item.condition }"
+                class="dyn-btn-copy"
+              ></button>
+            </div>
+            <span>{{ item.name }}</span>
+          </div>
+          <div *ngIf="item.condition" class="outer-schedule-slot">
+            <div
+              class="outer-schedule-slot-inner"
+              *ngFor="let slot of item.schedule; index as indexOfSlot"
+            >
+              <div class="start-end-times">
+                <div class="label-input-time-slot">
+                  <label for="start-time">start time</label>
+                  <input
+                    (change)="updateStartTime(indexOfDay, indexOfSlot, $event)"
+                    type="time"
+                    name="start-time"
+                    [value]="slot.startTime"
+                    id="start-time"
+                  />
+                </div>
+                <div class="copy-btn-start-time">
+                  <button
+                    (click)="copySlotS(indexOfSlot, indexOfDay, $event)"
+                    cdkCopyToClipboard="{{ slot.startTime }}"
+                    class="copy copy-btn"
+                  >
+                  <svg class='copy-svg' xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.copy-svg{fill:#4e81b1}</style><path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z"/></svg>                <div *ngIf="indexOfSlot === days[indexOfDay].index">
+                      <div
+                        [ngClass]="{ copyAlertVisible: item.alertCondS }"
+                        class="copy-btn-alert"
+                      >
+                        Copied
+                      </div>
+                    </div>
+                    <div *ngIf="indexOfSlot !== days[indexOfDay].index"></div>
+                  </button>
+                </div>
+              </div>
+              <h4 class="dashes">--</h4>
+              <div class="start-end-times">
+                <div class="label-input-time-slot">
+                  <label for="end-time">end time</label>
+                  <input
+                    (change)="updateEndTime(indexOfDay, indexOfSlot, $event)"
+                    type="time"
+                    [value]="slot.endTime"
+                    name="end-time"
+                    id="end-time"
+                  />
+                </div>
+                <div class="copy-add-btns">
+                  <button
+                    (click)="copySlot(indexOfDay, $event, indexOfSlot)"
+                    cdkCopyToClipboard="{{ slot.endTime }}"
+                    class="copy-btn"
+                  >
+                  <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.copy-svg{fill:#4e81b1}</style><path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z"/></svg>                <div *ngIf="indexOfSlot === days[indexOfDay].index">
+                      <div
+                        [ngClass]="{ copyAlertVisible: item.alertCond }"
+                        class="copy-btn-alert"
+                      >
+                        Copied
+                      </div>
+                    </div>
+                    <div *ngIf="indexOfSlot !== days[indexOfDay].index"></div>
+                  </button>
+                  <button
+                    *ngIf="indexOfSlot === 0"
+                    (click)="addSlot(indexOfDay, $event)"
+                    class="add-btn"
+                  >
+                    <!-- PLUS -->
+                    <svg class="green-plus" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.green-plus{fill:#3a9023}</style><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                  </button>
+                  <button
+                    *ngIf="indexOfSlot > 0"
+                    (click)="removeSlot(indexOfDay, indexOfSlot, $event)"
+                    class="add-btn"
+                  >
+                    <!-- MINUS -->
+                    <svg class="red-minus" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.red-minus{fill:#a91919}</style><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr *ngIf="indexOfDay < days.length - 1" />
+        </section>
+      </div>
+    </div>
+    <div *ngIf="!advancedCondition" class="normal-settings">
+      <section class="image-half"></section>
+      <section class="text-half">
+        <h1>There is nothing here</h1>
+        <p>
+          Our application allows you to easily reserve the best resource, within
+          the most suitable time period you need to fulfil your requirments.
+        </p>
+        <h3>
+          If you wish to adjust the time slots per day, you may click on enable
+          settings, and proceed.
+        </h3>
+      </section>
+    </div>
+  </section>
+  

@@ -1,0 +1,466 @@
+/*Weekdays-Start*/
+header{
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .title-con {
+    text-align: center;
+  }
+  .title-con p{
+    font-size: 11px;
+    color: var(--bs-gray-600);
+    word-wrap: break-word;
+  }
+  .title-con h3{
+    font-size: 12px;
+  }
+  .custom-li-copy {
+    background-color: var(--bs-gray-600);
+    border: 1px solid var(--bs-gray-300);
+    height: fit-content;
+    padding: .1rem;
+    width: 1.7em;
+    display: flex;
+    border-radius: 16px;
+    transition: all .4s ease-in-out;
+    cursor: pointer; 
+   }
+  .dyn-btn-copy {
+    border-radius: 50%;
+    display: inline-block;
+    border: none;
+    padding: 0;
+    width: .8em;
+    height: .8em;
+    margin: 0;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    }
+.dynamic-cont{
+    width: fit-content;
+    margin: 0 auto;
+  }
+  hr{
+    display: flex;
+    width: 80%;
+    border-color: var(--bs-gray-200);
+    margin-top: 1.4rem;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+  }
+  .copy-btn-start-time{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: start;
+  }
+  .dynamic-button{
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 10px;
+    color: var(--bs-gray-600);
+    height: fit-content;
+    padding: .3rem .5rem;
+    width: fit-content;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .start-end-times input{
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+    font-size: 12px;
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 6px;
+    color: var(--bs-gray-600);
+    font-family: sans-serif;
+    margin-bottom: .8rem;
+  }
+  .start-end-times label{
+    font-size: 12px;
+    display: block;
+    color: var(--bs-gray-600);
+  }
+  .dashes{
+    margin: 0;
+    display: none;
+  }
+  .outer-custom-li span{
+    font-size: 12px;
+  }
+  .outer-custom-li{
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+    margin-bottom: .3rem;
+  }
+  .copy-add-btns{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  .copy-btn,
+  .add-btn{
+    font-size: 12px;
+    border: 1px solid var(--bs-gray-200);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: .2rem;
+    transition: all .4s ease-in-out;
+    position: relative;
+  }
+.start-end-container{
+    margin-bottom: 1rem;
+  }
+.label-input-time-slot{
+    margin-block: .5rem;
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 6px;
+    padding: .1rem .15rem;
+    background-color: #e9e8e8;
+    transition: all .4s ease-in-out;
+}
+.separating-hr{
+  display: none;
+}
+.normal-settings{
+  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.image-half{
+  display: none;
+}
+.text-half{
+  border-radius: 6px;
+  border: 1px solid var(--bs-gray-400);
+  background-color: var(--bs-gray-200);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text-half h1,
+.text-half h3{
+  color: var(--bs-dark-blue);
+}
+.text-half h1{
+  font-size: 1rem;
+}
+.text-half p{
+  font-size: 14px;
+  color: var(--bs-blue);
+}
+.text-half h3{
+  font-size: .7rem;
+}
+/* Conditional Classes */
+  .liActive{
+      background-color: var(--bs-blue);
+      border: 1px solid #fff;
+  }
+  .active{
+      transform: translateX(.8rem);
+  }
+  .dynamicButtonActive{
+    margin-inline: .2rem;
+    background-color: var(--bs-blue);
+    color: #fff;
+    padding: .2rem .3rem;
+    border-radius: 6px;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+  }
+  .dynamicButtonNormal{
+    margin-inline: .2rem;
+    background-color: #222;
+    color: #fff;
+    padding: .2rem .3rem;
+    border-radius: 6px;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+  }
+  .copy-btn-alert{
+    position: absolute;
+    display: block;
+    padding: .1rem .3rem ;
+    background-color: var(--bs-blue);
+    color: #fff;
+    top: 0;
+    visibility: hidden;
+    z-index: -1;
+    border: none;
+    font-size: 12px;
+    left: 0;
+    transform: translateX(-20%);
+    top: 1.8rem; 
+    width: fit-content;
+    border-radius: 4px;
+    transition: all .1s ease-in-out;
+  }
+  .copyAlertVisible{
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+  }
+/*--------------------*/    
+/*Weekdays-Responsive*/
+  @media screen and (min-width: 400px) {
+     .copy-btn,
+    .add-btn{
+      font-size: 14px;
+      padding: .3rem;
+    }
+     .outer-custom-li span,
+    .start-end-times label,  
+    .start-end-times input{
+      font-size: 14px;
+    }
+    .dyn-btn-copy {
+      width: .9em;
+      height: .9em;
+    }
+    .custom-li-copy {
+      width: 1.85em;
+    }
+    .title-con p{
+      font-size: 12px;
+    }
+  .dynamic-button{
+    font-size: 12px;
+    padding: .3rem .4rem;
+  }
+  .dynamicButtonNormal,
+  .dynamicButtonActive{
+    font-weight: 500;
+    padding: .3rem .5rem;
+  }
+    }
+  @media screen and (min-width: 500px) {
+    .start-end-times input{
+      font-size: 16px;
+    }
+    .text-half h1{
+      font-size: 1.3rem;
+    }
+    .text-half p{
+      font-size: 15px;
+      color: var(--bs-blue);
+    }
+    .text-half h3{
+      font-size: 1rem;
+    }
+    
+  }
+  @media screen and (min-width: 700px) {
+    
+  .custom-li-copy:hover {
+    background-color: var(--bs-dark-blue);
+    border: 1px solid var(--bs-gray-800);
+  }
+ 
+    .dynamic-button span{
+        margin-right: .3rem;
+      }
+      .dynamic-cont{
+        margin: 0;
+      }
+      .title-con {
+        text-align: left;
+      }
+      header{
+        display: flex;
+      }
+    .title-con p{
+        font-size: 13px;
+        max-width: 350px;
+      }
+    .title-con h3{
+      font-size: 14px;
+    }
+    .dynamic-button{
+      font-size: 12px;
+    }
+    .dynamicButtonNormal,
+    .dynamicButtonActive{
+      font-weight: 500;
+    }   
+    }
+  @media screen and (min-width: 850px) {
+  .start-end-outer{
+    width: 100%;
+        }
+  .image-half{
+      display: block;
+      border: 1px solid var(--bs-gray-400);
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Noun_Project_resources_icon_901632_cc.svg/763px-Noun_Project_resources_icon_901632_cc.svg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 6px;
+      padding: 0;
+        }
+.normal-settings{
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+}
+.text-half h1{
+  font-size: 1.6rem;
+}
+.text-half p{
+  font-size: 16px;
+  color: var(--bs-blue);
+}
+.text-half h3{
+  font-size: 1.2rem;
+}
+
+    hr{
+      display: none;
+    }
+    .copy{
+      margin-left: 1rem;
+    }
+    .dashes{
+      margin-right: 1rem;
+      }
+    .outer-schedule-slot{
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.1rem;
+      border: 1px solid var(--bs-gray-400);
+      padding-left: .5rem;
+      border-radius: 6px;
+      padding-block: .3rem;
+      background-color: #e9e8e8;
+      transition: all .4s ease-in-out;
+    }
+    .outer-schedule-slot:hover{
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+    }
+    .outer-schedule-slot,
+    .outer-schedule-slot-inner{
+      width: 100%;
+      display: flex;
+    }
+    .outer-schedule-slot-inner{
+      justify-content: space-evenly;
+      align-items: center;
+      height: fit-content;
+    }
+    .outer-custom-li span{
+      width: 72px;
+    }
+    .alignUp{
+      align-items: start;
+    }
+    .alignCenter{
+      align-items: center;
+    }
+    .start-end-container{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .copy-add-btns{
+        justify-content: end;
+        width: fit-content;
+        gap: .5rem;
+        margin: 0;
+        margin-left: 1rem;
+      }
+      .start-end-times label{
+        white-space: nowrap;
+      }
+      .label-input-time-slot{
+        margin-block: 0;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        background-color: #e9e8e8;
+        transition: all .4s ease-in-out;
+        display: flex;
+        align-items: center;
+    }
+      .start-end-times{
+        display: flex;
+        align-items: center;
+      }
+      .outer-custom-li{
+        margin: 0;
+      }
+      .start-end-times input{
+        margin: 0;
+        margin-left: .5rem;
+        padding: .2rem;
+        width: 150px;
+      }
+          }
+  @media screen and (min-width: 900px) {
+  
+      .title-con p{
+        max-width: none;
+      }
+      .dynamicButtonNormal,
+      .dynamicButtonActive{
+      padding: .4rem;
+      margin-inline: .3rem;
+    } 
+       .dynamic-button{
+         padding: .5rem .6rem;
+       } 
+    }
+  @media screen and (min-width: 1000px){
+        .copy-add-btns{
+          gap: 1rem;
+        }
+        .start-end-outer{
+          max-width: 950px;
+        }
+    }
+  @media screen and (min-width: 1100px) {
+    .start-end-times input{
+      width: 250px;
+      max-width: 250px;
+    }
+    .dynamic-button span{
+      margin-right: .4rem;
+    }
+    .text-half h1{
+      font-size: 2rem;
+    }
+    .text-half p{
+      font-size: 17px;
+      color: var(--bs-blue);
+    }
+    .text-half h3{
+      font-size: 1.3rem;
+    }
+    
+  .title-con p{
+      font-size: 14px;
+    }
+  .title-con h3{
+    font-size: 15px;
+  }
+  .dynamic-button{
+    font-size: 13px;
+  }
+  .dynamicButtonNormal,
+  .dynamicButtonActive{
+    font-weight: 600;
+    margin-inline: .4rem;
+  }    
+  .dashes{
+    display: block;
+  }
+   }
+/*Weekdays-End*/
+  

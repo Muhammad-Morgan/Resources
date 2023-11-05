@@ -1,0 +1,381 @@
+/*Resource-pic-name-resa-Start*/
+.resource-pic-name {
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: all .4s ease-in-out;
+  }
+  .resource-pic-name-resa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .resource-pic-name:hover,
+  .res-kin:hover,
+  .time-section-con:hover{
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+  }
+  .time-section-con {
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+        transition: all .4s ease-in-out;
+
+  }
+  .resource-name label {
+    font-size: 12px;
+    color: var(--bs-gray-600);
+    display: block;
+    margin-left: 0.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .resource-name input {
+    display: flex;
+    width: 100%;
+    font-size: 12px;
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 4px;
+    background-color: var(--bs-gray-100);
+  }
+  .add-img-container {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 0.5rem;
+  }
+  .toggle-class{
+    visibility: hidden;
+    z-index: -1;
+  }
+  .upload-img:hover {
+    opacity: 0.7;
+  }
+  .upload-img {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--bs-gray-500);
+    color: var(--bs-gray-600);
+    font-size: 1.2rem;
+    border-radius: 4px;
+    width: 70px;
+    height: 50px;
+    position: relative;
+  }
+  .upload-img-button {
+    position: relative;
+    background-color: white;
+    border: none;
+    width: 55px;
+    height: 45px;
+    background-size: cover;
+  }
+  .upload-img-button img {
+    width: inherit;
+    height: inherit;
+  }
+  .upload-img input {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    font-size: 0;
+    width: 50px;
+    height: 35px;
+  }
+  .res-kind {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+        transition: all .4s ease-in-out;
+
+  }
+  .res-kind p {
+    color: var(--bs-gray-600);
+    font-size: 12px;
+    display: block;
+    margin-right: 0.3rem;
+  }
+  .radio-con {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+  }
+  .radio-con label {
+    color: var(--bs-gray-800);
+    font-family: sans-serif;
+    font-size: 12px;
+  }
+  .condtional-number-of-days{
+    margin-block: .5rem;
+    display: flex;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+  }
+  .condtional-number-of-days input{
+    display: flex;
+    width: 97%;
+    margin: 0 auto;
+    font-size: 14px;
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 4px;
+    background-color: var(--bs-gray-100);
+  }
+  @media screen and (min-width: 300px) {
+    .resa-counter input {
+      width: 100px;
+    }
+  }
+  @media screen and (min-width: 400px) {
+    .add-img-container {
+      margin-bottom: 0;
+    }
+    .upload-img {
+      margin: 0;
+    }
+    .resource-pic-name {
+      grid-template-columns: 1fr 4fr;
+    }
+    .condtional-number-of-days input{
+      width: 200px;
+      padding: .25rem;
+    }
+  }
+  @media screen and (min-width: 500px) {
+    .condtional-number-of-days input{
+      width: 100px;
+      padding: .25rem;
+    }
+    .res-kind {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .resource-name label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  .condtional-number-of-days input,
+  .resource-name input{
+      padding: .1rem;
+    }
+    .res-kind p {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .condtional-number-of-days input{
+      width: 100px;
+      padding: .3rem;
+    }
+    .condtional-number-of-days{
+      width: fit-content;
+    }
+    }
+  @media screen and (min-width: 800px) {
+    .upload-img span {
+      display: block;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .condtional-number-of-days input,
+    .resource-name input {
+      font-size: 16px;
+      padding: .2rem;
+    }
+    .resource-pic-name {
+      padding: 2rem 0.8rem;
+      gap: 1rem;
+    }
+    .time-section-con {
+      margin-top: 0;
+    }
+    .upload-img {
+      width: 75px;
+      height: 60px;
+    }
+    .upload-img-button {
+      width: 62px;
+      height: 52px;
+    }
+    .upload-img input {
+      width: 62px;
+      height: 52px;
+    }
+    .resource-name {
+      display: flex;
+      padding-block: 0.3rem;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  @media screen and (min-width: 1100px) {
+  .condtional-number-of-days input,
+  .day-month input,
+  .resource-name input{
+    padding: .3rem;
+    }
+    .name {
+      max-width: 100%;
+    }
+    .radio-con label {
+      font-size: 13px;
+      font-weight: 400;
+    }
+    .resource-pic-name-resa {
+      max-width: 100%;
+    }
+  }
+  /*Resource-pic-name-resa-End*/
+  /*Time-Section-Con-Start*/
+  .time-sub-section div {
+    gap: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .divided {
+    margin-bottom: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .time-section-sub-con p {
+    color: var(--bs-gray-600);
+    font-size: 12px;
+  }
+  .time-sub-section {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .time-sub-section label {
+    display: inline-flex;
+    font-size: 12px;
+  }
+  .cstm-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cstm-1 label {
+    font-size: 12px;
+    color: var(--bs-gray-600);
+  }
+  .day-month {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+  }
+  .day-month input,
+  .resa-counter input {
+    font-size: 12px;
+    background-color: var(--bs-gray-100);
+  }
+  .resa-counter input,
+  .day-month input,
+  .day-month select {
+    border-radius: 4px;
+    border: 1px solid var(--bs-gray-400);
+    font-size: 14px;
+  }
+  .day-month input {
+    min-width: 100px;
+  }
+  .day-month select {
+    max-width: 90px;
+    min-width: 50px;
+  }
+  .resa-counter input {
+    width: 60px;
+  }
+  .min-counter{
+    position: relative;
+    padding: .1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--bs-gray-200);
+    border-radius: 6px;
+    width: 90px;
+    height: 40px;
+  }
+  .min-counter h5{
+    color: var(--bs-dark-blue);
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .min-count-btns button{
+    font-size: 12px;
+    border: 1px solid var(--bs-gray-200);
+    border-radius: 6px;
+  }
+  .min-count-btns{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+  }
+  .resa-counter,
+  .resa-counter input{
+    width: 90px;
+  }
+  /*Time-Section-Con-Responisve*/
+  /* @media screen and (min-width: 400px) {
+    .resa-counter input {
+      width: 120px;
+    }
+  }
+   */
+   @media screen and (min-width: 500px) {
+    .min-counter{
+      width: 150px;
+    }
+  .resa-counter,
+  .resa-counter input{
+    width: 150px;
+  }
+    .resa-counter input {
+      padding: .1rem;
+    }
+    .time-section-sub-con p {
+      margin-right: 0.6rem;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .cstm-1 label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+  }
+  @media screen and (min-width: 800px) {
+    .min-counter h5{
+      font-size: 16px;
+    }
+    .day-month input,
+    select {
+      font-size: 16px;
+    }
+    .resa-counter input {
+      padding: .2rem;
+    }
+  }
+  @media screen and (min-width: 1100px) {
+    .cstm-1 {
+      max-width: 100%;
+    }
+    .min-counter{
+      width: 200px;
+    }
+  .resa-counter,
+  .resa-counter input{
+    width: 200px;
+  }
+  }
+  /*Time-Section-Con-End*/
+  

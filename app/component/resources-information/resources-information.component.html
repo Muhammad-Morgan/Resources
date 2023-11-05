@@ -1,0 +1,169 @@
+<section class="resources-information">
+    <div class="resource-pic-name-resa">
+      <article class="resource-pic-name">
+        <div class="add-img-container">
+          <div class="upload-img">
+            <button class="upload-img-button">
+              <svg class="asdf" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.asdf{
+                fill:#8f8f8f;
+                font-size: 32px;
+              }</style><path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"/></svg>            </button>
+            <input type="file"
+             name="file"
+              id="file"
+              [value]="resourceFile"
+              (change)="updatePic($event)"
+               />
+          </div>
+        </div>
+        <div class="resource-name">
+          <label for="name">Resource name</label>
+          <input type="text"
+           name="name"
+            id="name"
+            placeholder="type the resource name"
+            [value]="resourceName"
+            (change)="updateName($event)"
+            />
+        </div>
+      </article>
+      <article class="res-kind">
+        <p>Choose resource kind</p>
+        <div class="radio-con">
+          <input
+            type="radio"
+            name="number-of-days"
+            id="one-day"
+            (click)="updateValueDaysF()"
+          />
+          <label for="one-day">one day</label>
+        </div>
+        <div class="radio-con">
+          <input
+            type="radio"
+            name="number-of-days"
+            id="more-days"
+            (click)="updateValueDaysT()"
+          />
+          <label for="more-days">more than one day</label>
+        </div>
+        <div *ngIf="conditionD" class="condtional-number-of-days">
+          <input 
+          type="number" 
+          name="resa-number" 
+          id="resa-number"
+          [value]="numberOfReservationDays"
+          (change)="updateReservationDays($event)"
+          />
+        </div>
+      </article>
+    </div>
+    <div class="time-section-con">
+      <div class="cstm-1">
+        <label for="days">Resource available to</label>
+        <div class="day-month">
+          <input 
+          type="number" 
+          name="day-month" 
+          id="day-month"
+          [value]="numberOfReservationDay"
+          (change)="updateReservationDay($event)"
+          />
+          <select 
+          name="month" 
+          id="month"
+          (change)="updateMonth($event)"
+          >
+            <option selected value="">Select</option>
+            <option value="janaury">Janaury</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="august">August</option>
+            <option value="september">September</option>
+            <option value="october">October</option>
+            <option value="november">November</option>
+            <option value="december">December</option>
+          </select>
+        </div>
+      </div>
+      <section class="time-section-sub-con">
+        <p>Resource time</p>
+        <div class="divided">
+          <article class="time-sub-section">
+            <div>
+              <input
+                (click)="updateValueDayF()"
+                type="radio"
+                name="time-toggle"
+                id="time-service"
+              />
+              <label for="time-service">service time</label>
+            </div>
+            <div>
+              <input
+                (click)="updateValueDayT()"
+                type="radio"
+                name="time-toggle"
+                id="fixed-time"
+              />
+              <label for="fixed-time">fixed time</label>
+            </div>
+          </article>
+          <section
+          *ngIf="conditionT" 
+           class="min-counter">
+            <h5
+            >{{ counter }}</h5>
+            <div class="min-count-btns">
+              <button
+              (click)="incCounter($event)"
+               class="min-count-btn plus">
+               <svg class="blue-plus" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.blue-plus{fill:#224787}</style><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+              </button>
+               <button
+              (click)="decCounter($event)"
+               class="min-count-btn minus">
+               <svg class="blue-minus" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.blue-minus{fill:#a91919}</style><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg>
+              </button>
+            </div>
+          </section>
+      </div>
+        <div class="divided">
+          <article class="time-sub-section">
+            <div>
+              <input 
+              type="radio" 
+              name="f-time" 
+              id="time-service"
+              (click)="updateValueResaF()"
+               />
+              <label for="time-service">one</label>
+            </div>
+            <div>
+              <input
+               type="radio" 
+               name="f-time" 
+               id="fixed-time"
+               (click)="updateValueResaT()"
+               />
+              <label for="fixed-time">more than one</label>
+            </div>
+          </article>
+          <div *ngIf="conditionR" class="resa-counter">
+            <input 
+            type="number"
+             name="resa-no" 
+             id="resa-no" 
+             [value]="reservationCount"
+             (change)="updateReservationCount($event)"
+             />
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  

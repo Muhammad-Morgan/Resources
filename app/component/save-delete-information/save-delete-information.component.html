@@ -1,0 +1,109 @@
+<article *ngIf="dataSaved" class="saved-alert">
+  The Resource was saved Successfuly!
+</article>
+<article *ngIf="dataMissing" class="missing-alert">
+  Please fill all the required information!
+</article>
+<article *ngIf="popUpCondition" class="pop-up-window">
+  <div class="close-btnn">
+    <button class="close-btn" (click)="togglePopClose($event)">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="close-bttn"
+        height="1em"
+        viewBox="0 0 512 512"
+      >
+        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <style>
+          .close-bttn {
+            fill: #940000;
+          }
+        </style>
+        <path
+          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="pop-up-con">
+    <div class="img-pop-con">
+      <img [src]="resourceFile" alt="resource">
+    </div>
+    <div class="pop-up-contents">
+      <span>Resource Name:</span>
+      <p>{{ resourceName }}</p>
+    </div>
+    <div class="pop-up-contents">
+      <span>Number of Reservation's Days:</span>
+      <p>{{ numberOfReservationDays }}</p>
+    </div>
+    <div class="pop-up-contents">
+      <span>Available to:</span>
+      <p>{{ numberOfReservationDay }} - {{ month }}</p>
+    </div>
+    <div class="pop-up-contents">
+      <span>Fixed Time:</span>
+      <p>{{ counter }} minutes</p>
+    </div>
+    <div class="pop-up-contents">
+      <span>Number of Reservation's people:</span>
+      <p>{{ reservationCount }}</p>
+    </div>
+    <div class="outer-weekdays"
+    *ngFor="let item of weekdayTime; index as index">
+     <div
+     class="weekDays-con"
+      *ngIf="index > 0">
+       <div class="clostb">
+         <h3>{{item.day}}</h3>
+         <button
+         (click)="removeDay($event, item.starttime)"
+          class="close-time-bt">
+          remove
+         </button>
+       </div>
+       <div class="Time-con">
+        <h4>Start Time:</h4>
+        <p>{{item.starttime}}</p>
+           </div>
+       <div class="Time-con">
+        <h4>End Time:</h4>
+        <p>{{item.endtime}}</p>
+           </div>
+     </div>
+    </div>
+  </div>
+</article>
+<section class="save-delete-changes">
+  <div class="btns-container">
+    <ul>
+      <li>
+        <button
+          type="submit"
+          (click)="onClick($event)"
+          class="btn btn-secondary"
+          style="font-size: 16px;"
+        >
+          Save
+        </button>
+      </li>
+      <li *ngIf="conditionalButton">
+        <button (click)="togglePopUp($event)" class="view-btn"
+        style="font-size: 15.5px;"
+        >
+          View Details
+        </button>
+      </li>
+    </ul>
+    <div class="res-btn">
+      <h4>Book your Resource</h4>
+      <svg class="res-icn" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.res-icn{fill:#1e80ff;
+        @media screen and (min-width: 700px) {
+          font-size: 30px;
+        }
+        font-size: 20px;
+      }</style><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 352h8.2c32.3-39.1 81.1-64 135.8-64c5.4 0 10.7 .2 16 .7V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM320 352H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H360.2C335.1 449.6 320 410.5 320 368c0-5.4 .2-10.7 .7-16l-.7 0zm320 16a144 144 0 1 0 -288 0 144 144 0 1 0 288 0zM496 288c8.8 0 16 7.2 16 16v48h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H496c-8.8 0-16-7.2-16-16V304c0-8.8 7.2-16 16-16z"/></svg>
+      </div>
+  </div>
+</section>
+
